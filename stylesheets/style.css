@@ -1,0 +1,60 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#header {
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+#categories {
+  border: 1px solid #999;
+  width: 200px;
+  float: left;
+}
+
+#categories li{
+  border: 1px solid #999;
+  margin: 10px;
+  padding: 10px;
+}
+
+#bubbles {
+  border-top: 1px solid #999;
+  margin-left: 220px;
+  margin-right: 310px;
+  position: relative;
+}
+
+#posts{
+  width: 300px;
+  border: 1px solid #999;
+  float: right;
+  list-style: none;
+  height: 600px;
+}
+
+#posts li {
+  border: 1px solid #999;
+  margin: 10px;
+  padding: 10px;
+}
+
+.bubble {
+  position: absolute;
+  border: 1px solid #999;
+  border-radius: 100px;
+  line-height: 100px;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
