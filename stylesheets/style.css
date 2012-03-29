@@ -1,5 +1,6 @@
 body{
   font-family: 'Open Sans', sans-serif;
+  color: #333;
 }
 
 #wrapper {
@@ -13,6 +14,7 @@ body{
   background-color: white;
   margin: 0;
   padding: 21px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 #header h1{
@@ -25,27 +27,48 @@ ul{
 }
 
 #categories {
-  border: 1px solid #999;
   width: 175px;
   float: left;
   z-index: 5;
   background-color: white;
+  border-right: 1px solid #ddd;
 }
 
-#categories li{
-  border-bottom: 1px solid #999;
-  padding: 5px 0;
-  margin: 10px;
+#categories > li {
   text-transform:uppercase;
-  font-size: 13px;
 }
 
-#categories li.selected {
+#categories li span{
+  border-bottom: 1px solid #ddd;
+
+  margin: 0;
+  padding: 10px 0;
+  
+  cursor: pointer;
+  width: 175px;
+  display: inline-block;
+}
+
+#categories li.selected span {
   background-color: #eee;
 }
 
+#categories li ul {
+  display: none;
+  margin: 0 10px;
+}
+
+#categories li li {
+  color: #555;
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+#categories li li:before {
+  content:"\2013";
+}
+
 #bubbles {
-  border-top: 1px solid #999;
   margin-left: 180px;
   margin-right: 260px;
   position: relative;
@@ -53,7 +76,7 @@ ul{
 
 #posts{
   width: 250px;
-  border: 1px solid #999;
+  border-left: 1px solid #ddd;
   float: right;
   list-style: none;
   height: 600px;
@@ -69,7 +92,7 @@ ul{
 .bubble {
   z-index: -5;
   position: absolute;
-  border: 1px solid #eee;
+  border: 3px solid rgba(200,200,200,.5);
   opacity: 0.95;
   border-radius: 175px;
   line-height: 175px;
@@ -78,8 +101,10 @@ ul{
   height: 175px;
   background-size:175px 175px;
   
+  /* ADDED IN READY FUNCTION
   transition: 1.9s;
   -webkit-transition: 1.9s; 
   transition-timing-function: ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
+  */
 }

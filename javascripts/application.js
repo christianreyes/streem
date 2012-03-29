@@ -9,6 +9,14 @@ $(function(){
   });
   */
   
+  setTimeout(function(){
+    $('.bubble')
+      .css("transition", "1.9s")
+      .css("-webkit-transition", "1.9s")
+      .css("transition-timing-function", "ease-in-out")
+      .css("-webkit-transition-timing-function", "ease-in-out"); 
+  }, 1);
+  
   $('.bubble').each(function(ind, obj){
     $(obj)
       .css("top", (ind - ind % 3 )* 70 + 30 + Math.random() * 20 )
@@ -17,16 +25,21 @@ $(function(){
   
   setInterval(function(){
     $('.bubble').each(function(ind, obj){
-      if(Math.random() > .2){
+      if(Math.random() > .5){
         $(obj)
           .css("top", parseInt($(obj).css("top")) - Math.random() * 4 )
           .css("left", parseInt($(obj).css("left")) - Math.random() * 4 ); 
-      } else if(Math.random() > .5) {
+      } else  {
         $(obj)
           .css("top", parseInt($(obj).css("top")) + Math.random() * 4 )
           .css("left", parseInt($(obj).css("left")) + Math.random() * 4 ); 
       } 
     });
-  }, 2000);
+  }, 20000);
     
+    
+  $('#food').click(function(){
+    $(this).find("ul").toggle("fast");
+    $(this).toggleClass("selected");
+  });
 });
