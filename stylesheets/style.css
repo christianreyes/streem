@@ -121,6 +121,8 @@ ul{
 #posts li:hover {
   background-color: #eee;
   border-color: #ccc;
+  border-left: 3px solid #222;
+  color: #222;
 }
 
 #posts li.bubble_hover {
