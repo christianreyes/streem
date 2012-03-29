@@ -3,7 +3,7 @@ body{
 }
 
 #wrapper {
-  width: 960px;
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -18,25 +18,27 @@ ul{
 
 #categories {
   border: 1px solid #999;
-  width: 200px;
+  width: 175px;
   float: left;
 }
 
 #categories li{
-  border: 1px solid #999;
+  border-bottom: 1px solid #999;
+  padding: 5px 0;
   margin: 10px;
-  padding: 10px;
+  text-transform:uppercase;
+  font-size: 13px;
 }
 
 #bubbles {
   border-top: 1px solid #999;
-  margin-left: 220px;
-  margin-right: 310px;
+  margin-left: 180px;
+  margin-right: 260px;
   position: relative;
 }
 
 #posts{
-  width: 300px;
+  width: 250px;
   border: 1px solid #999;
   float: right;
   list-style: none;
@@ -47,14 +49,16 @@ ul{
   border: 1px solid #999;
   margin: 10px;
   padding: 10px;
+  font-size: 11px;
 }
 
 .bubble {
   position: absolute;
   border: 1px solid #999;
-  border-radius: 100px;
-  line-height: 100px;
+  border-radius: 175px;
+  line-height: 175px;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 175px;
+  height: 175px;
+  background-size:175px 175px;
 }
