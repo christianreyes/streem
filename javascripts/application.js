@@ -12,7 +12,7 @@ $(function(){
   setTimeout(function(){
     $('.bubble')
       .css("transition", "top left 1.9s")
-      .css("-webkit-transition", "top left 1.9s")
+      .css("-webkit-transition", "opacity .3s,-webkit-transform .3s,border-color .3s,top 1.9s, left 1.9s")
       .css("transition-timing-function", "ease-in-out")
       .css("-webkit-transition-timing-function", "ease-in-out"); 
   }, 1);
@@ -35,7 +35,7 @@ $(function(){
           .css("left", parseInt($(obj).css("left")) + Math.random() * 4 ); 
       } 
     });
-  }, 20000);
+  }, 5000);
     
     
   $('#food').click(function(){
