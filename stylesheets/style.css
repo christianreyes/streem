@@ -144,8 +144,6 @@ ul{
   /* ADDED IN READY FUNCTION
   transition: 1.9s;
   -webkit-transition: 1.9s; 
-  transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
   */
   
   transition: 
