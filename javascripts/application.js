@@ -11,15 +11,15 @@ $(function(){
   
   setTimeout(function(){
     $('.bubble')
-      .css("transition", "1.9s")
-      .css("-webkit-transition", "1.9s")
+      .css("transition", "top left 1.9s")
+      .css("-webkit-transition", "top left 1.9s")
       .css("transition-timing-function", "ease-in-out")
       .css("-webkit-transition-timing-function", "ease-in-out"); 
   }, 1);
   
   $('.bubble').each(function(ind, obj){
     $(obj)
-      .css("top", (ind - ind % 3 )* 70 + 30 + Math.random() * 20 )
+      .css("top", (ind - ind % 3 )* 70 + 15 + Math.random() * 20 )
       .css("left", ind % 3 * 185 + 10 );
   });
   
@@ -41,5 +41,13 @@ $(function(){
   $('#food').click(function(){
     $(this).find("ul").toggle("fast");
     $(this).toggleClass("selected");
+  });
+  
+  $('.bubble').hover(function(){
+    $($('#posts li')[$(this).index()]).toggleClass("bubble_hover");
+  });
+  
+  $('#posts li').hover(function(){
+    $($('.bubble')[$(this).index()]).toggleClass("post_hover");
   });
 });

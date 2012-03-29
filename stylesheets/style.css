@@ -1,6 +1,8 @@
 body{
   font-family: 'Open Sans', sans-serif;
   color: #333;
+  transform-style: preserve-3d; /* this line fixes the flicker problem */
+  -webkit-transform-style: preserve-3d;
 }
 
 #wrapper {
@@ -24,6 +26,7 @@ body{
 ul{
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 #categories {
@@ -32,6 +35,9 @@ ul{
   z-index: 5;
   background-color: white;
   border-right: 1px solid #ddd;
+}
+
+#categories ul {
 }
 
 #categories > li {
@@ -49,19 +55,35 @@ ul{
   display: inline-block;
 }
 
-#categories li.selected span {
+#categories li span:hover {
   background-color: #eee;
+}
+
+/*
+#categories  li:last-child span {
+  border-bottom: 1px solid #eee;
+}
+*/
+
+#categories li.selected span {
+  background-color: #ddd;
 }
 
 #categories li ul {
   display: none;
-  margin: 0 10px;
 }
 
 #categories li li {
   color: #555;
   font-size: 13px;
-  padding: 5px 0;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  margin-left: 10px;
+}
+
+#categories li li:hover {
+  background-color: #eee;
+  cursor: pointer;
 }
 
 #categories li li:before {
@@ -79,27 +101,41 @@ ul{
   border-left: 1px solid #ddd;
   float: right;
   list-style: none;
-  height: 600px;
 }
 
 #posts li {
-  border: 1px solid #999;
-  margin: 10px;
-  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 15px;
+  padding: 12px;
   font-size: 11px;
+  cursor: pointer;
+  
+  transition: .3s;
+  -webkit-transition: .3s;
+}
+
+#posts li:hover {
+  background-color: #eee;
+  border-color: #ccc;
+}
+
+#posts li.bubble_hover {
+  background-color: #eee;
+  border-color: #ccc;
+  color: #222;
 }
 
 .bubble {
   z-index: -5;
   position: absolute;
   border: 3px solid rgba(200,200,200,.5);
-  opacity: 0.95;
-  border-radius: 175px;
-  line-height: 175px;
+  opacity: 0.8;
+  border-radius: 170px;
+  line-height: 170px;
   text-align: center;
-  width: 175px;
-  height: 175px;
-  background-size:175px 175px;
+  width: 170px;
+  height: 170px;
+  background-size:170px 170px;
   
   /* ADDED IN READY FUNCTION
   transition: 1.9s;
@@ -107,4 +143,30 @@ ul{
   transition-timing-function: ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
   */
+  
+  transition: 
+    opacity .3s,
+    transform .3s,
+    border-color .3s;
+  -webkit-transition: 
+    opacity .3s,
+    -webkit-transform .3s,
+    border-color .3s;
 }
+
+.bubble:hover {
+  opacity: 1.0;
+  cursor: pointer;
+  transform: scale(1.1);
+  border-color: #333;
+  -webkit-transform: scale(1.1);
+  z-index: 3;
+}
+
+.bubble.post_hover{
+  opacity: 1.0;
+  border-color: #333;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  z-index: 3;
+} 
