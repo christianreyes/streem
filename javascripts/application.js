@@ -72,7 +72,7 @@ $(function(){
         
         var end_top = parseInt($(obj).css("top"));
         while(obj.row > r){
-          end_top -= 220;
+          end_top -= 215;
           obj.row--;
         }
         if(end_top !== parseInt($(obj).css("top"))){
