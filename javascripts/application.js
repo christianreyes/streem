@@ -35,13 +35,16 @@ $(function(){
     
   $('#food').click(function(){
     $(this).find("ul").toggle("fast");
-    $(this).toggleClass("selected");
+    $(this).addClass("selected");
     
     bubble_up("food");
   });
   
-  $('#cooking').click(function(){
-    $(this).toggleClass("selected");
+  $('#cooking').click(function(e){
+    e.stopPropagation()
+    $(this).addClass("selected");
+    $('#food').removeClass("selected")
+    $('#food span').addClass("sub_selected");
     bubble_up("cooking");
   });
   

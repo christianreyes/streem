@@ -94,6 +94,14 @@ ul{
   content:"\2013";
 }
 
+#food span.sub_selected {
+  background-color: #eee;
+}
+
+#cooking.selected {
+  background-color: #ddd;
+}
+
 #bubbles {
   margin-left: 180px;
   margin-right: 260px;
