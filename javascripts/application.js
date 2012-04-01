@@ -1,20 +1,22 @@
+var cols = [new Array(), new Array(), new Array()];
+
+var posts;
+
 $(function(){
   // ready function
   
-  setTimeout(function(){
-    $('.bubble')
-      .css("transition", "top left 1.9s")
-      .css("-webkit-transition", "opacity .3s,-webkit-transform .3s,border-color .3s,top 1.9s, left 1.9s")
-      .css("transition-timing-function", "ease-in-out")
-      .css("-webkit-transition-timing-function", "ease-in-out"); 
-  }, 1);
+  posts = $('#posts li');
   
   $('.bubble').each(function(ind, obj){
     $(obj)
       .css("top", (ind - ind % 3 )* 70 + 15 + Math.random() * 20 )
       .css("left", ind % 3 * 185 + 10 );
+    obj.col = ind%3;
+    obj.row = Math.floor(ind/3);
+    cols[ind%3].push(obj);
   });
   
+  /*
   setInterval(function(){
     $('.bubble').each(function(ind, obj){
       if(Math.random() > .5){
@@ -28,18 +30,61 @@ $(function(){
       } 
     });
   }, 5000);
+  */
     
     
   $('#food').click(function(){
     $(this).find("ul").toggle("fast");
     $(this).toggleClass("selected");
+    
+    bubble_up("food");
+  });
+  
+  $('#cooking').click(function(){
+    $(this).toggleClass("selected");
+    bubble_up("cooking");
   });
   
   $('.bubble').hover(function(){
-    $($('#posts li')[$(this).index()]).toggleClass("bubble_hover");
+    $(posts[$(this).index()]).toggleClass("bubble_hover");
   });
   
   $('#posts li').hover(function(){
     $($('.bubble')[$(this).index()]).toggleClass("post_hover");
   });
+  
+  function bubble_up(filter){
+    $('.bubble:not(.' + filter + ')').each(function(ind, obj){
+      $(obj).fadeOut(function(){
+        $(obj).remove();
+      });
+      cols[this.col].splice(cols[this.col].indexOf(this),1);
+    });
+    
+    var animation_queue = [];
+    
+    for(var c=0;c<3;c++){
+      for(var r=0;r<cols[c].length;r++){
+        var obj = cols[c][r];
+        
+        var end_top = parseInt($(obj).css("top"));
+        while(obj.row > r){
+          end_top -= 220;
+          obj.row--;
+        }
+        if(end_top !== parseInt($(obj).css("top"))){
+          animation_queue.push({
+            obj: obj,
+            end_top: end_top
+          });
+        }
+      }
+    }
+    
+    while(animation_queue.length > 0){
+      var animation = animation_queue[0];
+      $(animation.obj).css("top", animation.end_top);
+      animation_queue.shift();
+    }
+  }
 });

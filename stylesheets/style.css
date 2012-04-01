@@ -150,13 +150,11 @@ ul{
   */
   
   transition: 
-    opacity .3s,
     transform .3s,
-    border-color .3s;
+    top 1s;
   -webkit-transition: 
-    opacity .3s,
-    -webkit-transform .3s,
-    border-color .3s;
+    -webkit-transform .1s,
+    top 1s;
 }
 
 .bubble:hover {
