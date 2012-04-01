@@ -7,13 +7,16 @@ $(function(){
   
   posts = $('#posts li');
   
-  $('.bubble').each(function(ind, obj){
-    $(obj)
+  $('.bubble').each(function(ind, bubble){
+    $(bubble)
       .css("top", (ind - ind % 3 )* 70 + 15 + Math.random() * 20 )
       .css("left", ind % 3 * 185 + 10 );
-    obj.col = ind%3;
-    obj.row = Math.floor(ind/3);
-    cols[ind%3].push(obj);
+    bubble.col = ind%3;
+    bubble.row = Math.floor(ind/3);
+    cols[ind%3].push(bubble);
+    
+    bubble.post = posts[ind];
+    posts[ind].bubble = bubble;
   });
   
   /*
@@ -49,18 +52,17 @@ $(function(){
   });
   
   $('.bubble').hover(function(){
-    $(posts[$(this).index()]).toggleClass("bubble_hover");
+    $(this.post).toggleClass("bubble_hover");
   });
   
   $('#posts li').hover(function(){
-    $($('.bubble')[$(this).index()]).toggleClass("post_hover");
+    $(this.bubble).toggleClass("post_hover");
   });
   
   function bubble_up(filter){
     $('.bubble:not(.' + filter + ')').each(function(ind, obj){
-      var post = $(posts[obj.row * 3 + obj.col]);
-      post.slideUp(function(){
-        //post.remove();
+      $(obj.post).slideUp(function(){
+        $(this).remove();
       });
       $(obj).fadeOut(function(){
         $(obj).remove();
