@@ -58,6 +58,10 @@ $(function(){
   
   function bubble_up(filter){
     $('.bubble:not(.' + filter + ')').each(function(ind, obj){
+      var post = $(posts[obj.row * 3 + obj.col]);
+      post.slideUp(function(){
+        //post.remove();
+      });
       $(obj).fadeOut(function(){
         $(obj).remove();
       });
