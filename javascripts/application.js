@@ -4,6 +4,10 @@ var posts;
 
 $(function(){
   // ready function
+
+  $('.popdiv').hide();
+  $('.popimg').hide();
+ 
   
   posts = $('#posts li');
   
@@ -66,6 +70,20 @@ $(function(){
     $(this).parent().css("background-color", "#ABE8A9");
     $(this).toggleClass("selected");
   });
+
+  $('#popup').click(function(){
+  $('.popdiv').fadeIn();
+  $('.popimg').slideDown();
+ 
+  });
+
+  $('.popimg').click(function(){
+  $('.popdiv').fadeOut();
+  $('.popimg').slideUp();
+ 
+  });
+
+
   
   function bubble_up(filter){
     $('.bubble:not(.' + filter + ')').each(function(ind, obj){

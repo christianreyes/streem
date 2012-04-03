@@ -174,6 +174,26 @@ ul{
   border-left: 3px solid #222;
 }
 
+.popdiv {
+width:100%;
+height:100%;
+top:0px;
+left:0px;
+position:fixed;
+z-index:99;
+background-color:#000;
+min-height:2100px;
+opacity: 0.7;
+}
+
+.popimg {
+position: absolute;
+z-index: 999;
+margin-left:50px;
+top:20px;
+
+}
+
 .bubble {
   z-index: -5;
   position: absolute;
