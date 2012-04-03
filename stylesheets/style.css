@@ -1,4 +1,4 @@
-body{
+body {
   font-family: 'Open Sans', sans-serif;
   color: #333;
   background-color:#fff;
@@ -16,12 +16,40 @@ body{
   z-index: 5;
   background-color:#fff;
   margin: 0;
+  margin-top: 10px;
   padding: 21px 0;
   border-bottom: 1px solid #afafaf;
+  overflow: auto;
+  position: relative;
+}
+
+#search {
+  float: left;
+  border: 1px solid #999;
+  width: 170px;
+  color: #bbb;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 15px;
+}
+
+#links {
+  float: right;
+  color: #bbb;
+}
+
+#links a {
+  margin-left: 20px;
 }
 
 #header h1{
   margin: 0;
+}
+
+#logo {
+  position: absolute;
+  left: 400px;
+  top: 10px;
 }
 
 ul{
@@ -31,8 +59,9 @@ ul{
 }
 
 #categories {
-  width: 175px;
+  width: 165px;
   float: left;
+  margin-left: 10px;
   z-index: 5;
   
   background-color:#fff;
@@ -53,7 +82,7 @@ ul{
   padding: 10px 0;
   
   cursor: pointer;
-  width: 175px;
+  width: 165px;
   display: inline-block;
 }
 
