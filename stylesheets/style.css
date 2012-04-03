@@ -121,9 +121,43 @@ ul{
   padding: 12px;
   font-size: 11px;
   cursor: pointer;
+  position: relative;
   
   transition: .3s;
   -webkit-transition: .3s;
+}
+
+#posts li .vote {
+  position: absolute;
+  float: right;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  right: 5px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+#posts li .info {
+  margin-right: 15px;
+}
+
+#posts li .up {
+  background-color: #A0FF8F;
+  top: 5px;
+  color: #69A85E;
+  display: none;
+}
+
+#posts li .up:hover{
+  background-color: #89D97A;
+  color: #A1FF8F;
+}
+
+#posts li .selected {
+  background-color: #84D176;
+  color: #A1FF8F;
 }
 
 #posts li:hover {

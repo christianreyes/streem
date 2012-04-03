@@ -53,10 +53,18 @@ $(function(){
   
   $('.bubble').hover(function(){
     $(this.post).toggleClass("bubble_hover");
+    $(this.post).find(".up").toggle();
   });
   
   $('#posts li').hover(function(){
     $(this.bubble).toggleClass("post_hover");
+    $(this).find(".up").toggle();
+  });
+  
+  $('#posts li .up').click(function(e){
+    e.stopPropagation();
+    $(this).parent().css("background-color", "#ABE8A9");
+    $(this).toggleClass("selected");
   });
   
   function bubble_up(filter){
